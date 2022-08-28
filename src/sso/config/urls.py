@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from sso.config.jwt import CustomTokenObtainPairView
+from sso.auth.views import CustomTokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

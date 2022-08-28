@@ -1,4 +1,3 @@
-from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 from sso.service.models import Service
@@ -18,9 +17,3 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         services = Service.for_user(user)
         token['aud']=[service.identifier for service in services]
         return token
-
-class CustomTokenObtainPairView(TokenObtainPairView):
-    """
-    Takes a set of user credentials and returns an access and refresh token pair.
-    """
-    serializer_class = CustomTokenObtainPairSerializer
